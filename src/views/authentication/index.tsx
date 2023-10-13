@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { StackScreenProps } from '@react-navigation/stack'
 import { AuthStackParamList } from '../../navigation/AuthStack/AuthFlowScreen'
 import { Dimensions, Image, StyleSheet, TextInput, View } from 'react-native'
-import { gridUnits } from '../../utils/dimensions'
+import { gridUnits, widthPercent } from '../../utils/dimensions'
 import {
   FontAlignment,
   FontColor,
@@ -71,29 +71,29 @@ const Authentication: FC<AuthenticationProps> = ({ navigation }) => {
               alignment={FontAlignment.LEFT}>
               {'¿Has olvidado tu contraseña?'}
             </Typography.MontserratBold>
-
             <ButtonBase.OutFill
-              fillColor={COLORS.PRIMARY_GREEN}
-              label={'UBICACIÓN ACTUAL'}
-              labelColor={FontColor.WHITE}
-            />
-            {/* <ButtonBase.OutFill
-              fillColor={COLORS.PRIMARY_GREEN}
-              label={'UBICACIÓN ACTUAL'}
-              width={widthPercent(0.5)}
-              // containerStyle={{
-              //   borderRadius: gridUnits(3),
-              //   position: 'absolute',
-              //   bottom: 10,
-              //   alignSelf: 'center',
-              // }}
+              fillColor={COLORS.YELLOW[200]}
+              label={'Iniciar'}
+              width={widthPercent(0.6)}
+              containerStyle={styles.buttonContainer}
               labelStyle={{
                 fontSize: FontSize.SM,
                 fontFamily: FontFamily.MONTSERRAT_BOLD,
               }}
               labelColor={FontColor.WHITE}
               onPress={goToHomeView}
-            /> */}
+            />
+            <ButtonBase.OutLine
+              borderLineColor={COLORS.YELLOW[200]}
+              label={'Registrate'}
+              width={widthPercent(0.6)}
+              containerStyle={styles.registerButton}
+              labelStyle={{
+                fontSize: FontSize.SM,
+                fontFamily: FontFamily.MONTSERRAT_BOLD,
+              }}
+              labelColor={FontColor.WHITE}
+            />
           </View>
         </View>
       </View>
@@ -104,6 +104,11 @@ const Authentication: FC<AuthenticationProps> = ({ navigation }) => {
 export default Authentication
 
 const styles = StyleSheet.create({
+  buttonContainer: {
+    alignSelf: 'center',
+    borderRadius: gridUnits(3),
+    marginVertical: gridUnits(1),
+  },
   container: {
     flex: 1,
   },
@@ -130,6 +135,13 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
     position: 'absolute',
+  },
+  registerButton: {
+    alignSelf: 'center',
+    backgroundColor: COLORS.TRANSPARENT,
+    borderRadius: gridUnits(3),
+    borderWidth: 2,
+    marginVertical: gridUnits(1),
   },
   text: {
     alignSelf: 'flex-end',

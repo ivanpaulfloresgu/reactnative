@@ -62,4 +62,5 @@ export const COLORS = {
     100: '#FFECEC',
     500: '#DD3135',
   },
+  TRANSPARENT: 'transparent',
 }
