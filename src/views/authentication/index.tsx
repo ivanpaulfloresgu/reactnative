@@ -12,6 +12,7 @@ import {
 } from '../../components/Typography'
 import { IMAGES } from '../../constants/images'
 import { COLORS } from '../../constants/colors'
+import { ButtonBase } from '../../components/Button/ButtonBase'
 type AuthenticationProps = StackScreenProps<AuthStackParamList, 'LOGIN'>
 
 const Authentication: FC<AuthenticationProps> = ({ navigation }) => {
@@ -71,6 +72,11 @@ const Authentication: FC<AuthenticationProps> = ({ navigation }) => {
               {'¿Has olvidado tu contraseña?'}
             </Typography.MontserratBold>
 
+            <ButtonBase.OutFill
+              fillColor={COLORS.PRIMARY_GREEN}
+              label={'UBICACIÓN ACTUAL'}
+              labelColor={FontColor.WHITE}
+            />
             {/* <ButtonBase.OutFill
               fillColor={COLORS.PRIMARY_GREEN}
               label={'UBICACIÓN ACTUAL'}
