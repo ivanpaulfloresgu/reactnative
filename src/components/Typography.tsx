@@ -15,15 +15,51 @@ export enum FontSize {
 }
 
 export enum FontWeight {
-  REGULAR,
-  SEMI_BOLD,
-  BOLD,
-  LIGHT,
-  MEDIUM,
+  NORMAL = 'normal',
+  BOLD = 'bold',
+  W_100 = '100',
+  W_200 = '200',
+  W_300 = '300',
+  W_400 = '400',
+  W_500 = '500',
+  W_600 = '600',
+  W_700 = '700',
+  W_800 = '800',
+  W_900 = '900',
 }
 
 export enum FontColor {
-  DARK,
+  BLACK,
+  RED,
+  SHADE_RED,
+  WHITE,
+  GRAY,
+  MEDIUM_GRAY,
+  DARK_GRAY,
+  GREEN,
+  LIGHT_BLUE,
+  SKY_BLUE,
+  PURPLE_100,
+  PURPLE_200,
+  PURPLE_300,
+  PRIMARY_100,
+  PRIMARY_300,
+  PRIMARY_400,
+  PRIMARY_500,
+  PRIMARY_600,
+  PRIMARY_700,
+  PRIMARY_800,
+  NEUTRAL_100,
+  NEUTRAL_500,
+  NEUTRAL_600,
+  NEUTRAL_700,
+  NEUTRAL_800,
+  NEUTRAL_900,
+  ERROR_500,
+  BLUE_100,
+  BLUE_200,
+  ORANGE,
+  YELLOW_200,
 }
 
 export enum FontAlignment {
@@ -32,22 +68,56 @@ export enum FontAlignment {
   RIGHT = 'right',
 }
 
-export const WORKSANS_REGULAR = 'WorkSans-Regular'
-export const WORKSANS_SEMI_BOLD = 'WorkSans-SemiBold'
-export const WORKSANS_BOLD = 'WorkSans-Bold'
-export const WORKSANS_LIGHT = 'WorkSans-Light'
-export const WORKSANS_MEDIUM = 'WorkSans-Medium'
-
-const fontWeightMap: Record<FontWeight, string> = {
-  [FontWeight.REGULAR]: WORKSANS_REGULAR,
-  [FontWeight.SEMI_BOLD]: WORKSANS_SEMI_BOLD,
-  [FontWeight.BOLD]: WORKSANS_BOLD,
-  [FontWeight.LIGHT]: WORKSANS_LIGHT,
-  [FontWeight.MEDIUM]: WORKSANS_MEDIUM,
+export enum FontFamily {
+  LATO_REGULAR = 'Lato-Regular',
+  LATO_SEMIBOLD = 'Lato-Semibold',
+  LATO_LIGHT = 'Lato-Light',
+  LATO_BOLD = 'Lato-Bold',
+  MONTSERRAT_REGULAR = 'Montserrat-Regular',
+  MONTSERRAT_SEMIBOLD = 'Montserrat-SemiBold',
+  MONTSERRAT_LIGHT = 'Montserrat-Light',
+  MONTSERRAT_LINK = 'Montserrat-Link',
+  MONTSERRAT_BOLD = 'Montserrat-Bold',
+  AGRANDIR_BOLD = 'Agrandir-Bold',
+  AGRANDIR_BOLDITALIC = 'Agrandir-BoldItalic',
+  AGRANDIR_ITALIC = 'Agrandir-Italic',
+  AGRANDIR_LIGHT = 'Agrandir-Light',
+  AGRANDIR_LIGHTITALIC = 'Agrandir-LightItalic',
+  AGRANDIR_REGULAR = 'Agrandir-Regular',
 }
 
 const colorMap: Record<FontColor, string> = {
-  [FontColor.DARK]: COLORS.BLACK,
+  [FontColor.WHITE]: COLORS.WHITE,
+  [FontColor.BLACK]: COLORS.BLACK,
+  [FontColor.RED]: COLORS.RED,
+  [FontColor.NEUTRAL_100]: COLORS.NEUTRAL[100],
+  [FontColor.NEUTRAL_700]: COLORS.NEUTRAL[700],
+  [FontColor.SHADE_RED]: COLORS.SHADE_RED[100],
+  [FontColor.NEUTRAL_800]: COLORS.NEUTRAL[800],
+  [FontColor.NEUTRAL_500]: COLORS.NEUTRAL[500],
+  [FontColor.NEUTRAL_600]: COLORS.NEUTRAL[600],
+  [FontColor.NEUTRAL_900]: COLORS.NEUTRAL[900],
+  [FontColor.PRIMARY_100]: COLORS.PRIMARY[100],
+  [FontColor.PRIMARY_300]: COLORS.PRIMARY[300],
+  [FontColor.PRIMARY_400]: COLORS.PRIMARY[400],
+  [FontColor.PRIMARY_500]: COLORS.PRIMARY[500],
+  [FontColor.PRIMARY_600]: COLORS.PRIMARY[600],
+  [FontColor.PRIMARY_700]: COLORS.PRIMARY[700],
+  [FontColor.PRIMARY_800]: COLORS.PRIMARY[800],
+  [FontColor.GRAY]: COLORS.GRAY,
+  [FontColor.MEDIUM_GRAY]: COLORS.MEDIUM_GRAY,
+  [FontColor.DARK_GRAY]: COLORS.DARK_GRAY,
+  [FontColor.GREEN]: COLORS.PRIMARY_GREEN,
+  [FontColor.LIGHT_BLUE]: COLORS.LIGHT_BLUE,
+  [FontColor.SKY_BLUE]: COLORS.SKY_BLUE,
+  [FontColor.PURPLE_100]: COLORS.PURPLE[100],
+  [FontColor.PURPLE_200]: COLORS.PURPLE[200],
+  [FontColor.PURPLE_300]: COLORS.PURPLE[300],
+  [FontColor.ERROR_500]: COLORS.ERROR[500],
+  [FontColor.BLUE_100]: COLORS.BLUE[100],
+  [FontColor.BLUE_200]: COLORS.BLUE[200],
+  [FontColor.ORANGE]: COLORS.ORANGE,
+  [FontColor.YELLOW_200]: COLORS.YELLOW[200],
 }
 
 const lineHeightMap: Record<FontSize, number> = {
@@ -68,29 +138,32 @@ type TypographyCommonProps = TextProps & {
   weight?: FontWeight
   lineHeight?: FontSize
   size?: FontSize
+  fontFamily?: FontFamily
 }
 
 type TypographyProps = TypographyCommonProps & {
   size: FontSize
-  weight: FontWeight
+  weight?: FontWeight
   lineHeight: FontSize
+  fontFamily?: FontFamily
 }
 
 type TypographyType = FC<TypographyProps> & {
-  H1: FC<TypographyCommonProps>
-  H2: FC<TypographyCommonProps>
-  H3: FC<TypographyCommonProps>
-  Headline: FC<TypographyCommonProps>
-  Paragraph: FC<TypographyCommonProps>
-  ParagraphSemiBold: FC<TypographyCommonProps>
-  Caption: FC<TypographyCommonProps>
-  CaptionSemiBold: FC<TypographyCommonProps>
-  CaptionMedium: FC<TypographyCommonProps>
-  CaptionSmall: FC<TypographyCommonProps>
-  CaptionLight: FC<TypographyCommonProps>
-  ParagraphLight: FC<TypographyCommonProps>
-  ParagraphMedium: FC<TypographyCommonProps>
-  CaptionLightSmall: FC<TypographyCommonProps>
+  MontserratRegular: FC<TypographyCommonProps>
+  MontserratSemiBold: FC<TypographyCommonProps>
+  MontserratLight: FC<TypographyCommonProps>
+  MontserratLink: FC<TypographyCommonProps>
+  MontserratBold: FC<TypographyCommonProps>
+  LatoRegular: FC<TypographyCommonProps>
+  LatoSemiBold: FC<TypographyCommonProps>
+  LatoBold: FC<TypographyCommonProps>
+  LatoLight: FC<TypographyCommonProps>
+  AgrandirBold: FC<TypographyCommonProps>
+  AgrandirBoldItalic: FC<TypographyCommonProps>
+  AgrandirItalic: FC<TypographyCommonProps>
+  AgrandirLight: FC<TypographyCommonProps>
+  AgrandirLightItalic: FC<TypographyCommonProps>
+  AgrandirRegular: FC<TypographyCommonProps>
 }
 
 const getFontSize = (originalSize: number) => {
@@ -111,17 +184,19 @@ export const Typography: TypographyType = ({
   children,
   style,
   size,
-  weight = FontWeight.REGULAR,
-  color = FontColor.DARK,
+  fontFamily,
+  color = FontColor.BLACK,
   alignment = FontAlignment.LEFT,
   lineHeight,
+  weight,
   ...props
 }) => {
   const textStyle: TextStyle = {
     fontSize: getFontSize(size),
-    fontFamily: fontWeightMap[weight],
+    fontFamily: fontFamily,
     color: colorMap[color],
     textAlign: alignment,
+    fontWeight: weight,
     lineHeight: lineHeightMap[lineHeight],
   }
 
@@ -132,138 +207,139 @@ export const Typography: TypographyType = ({
   )
 }
 
-const TypographyH1: FC<TypographyCommonProps> = props => (
-  <Typography
-    size={FontSize.XXL}
-    weight={FontWeight.BOLD}
-    lineHeight={lineHeightMap[FontSize.XXL]}
-    {...props}
-  />
-)
-
-const TypographyH2: FC<TypographyCommonProps> = props => (
-  <Typography
-    size={FontSize.XL}
-    weight={FontWeight.BOLD}
-    lineHeight={lineHeightMap[FontSize.XL]}
-    {...props}
-  />
-)
-
-const TypographyH3: FC<TypographyCommonProps> = props => (
-  <Typography
-    size={FontSize.LG}
-    weight={FontWeight.SEMI_BOLD}
-    lineHeight={lineHeightMap[FontSize.LG]}
-    {...props}
-  />
-)
-
-const TypographyHeadline: FC<TypographyCommonProps> = props => (
-  <Typography
-    size={FontSize.BASE}
-    weight={FontWeight.SEMI_BOLD}
-    lineHeight={lineHeightMap[FontSize.BASE]}
-    {...props}
-  />
-)
-
-const TypographyParagraph: FC<TypographyCommonProps> = props => (
-  <Typography
-    size={FontSize.BASE}
-    weight={FontWeight.REGULAR}
-    lineHeight={lineHeightMap[FontSize.BASE]}
-    {...props}
-  />
-)
-const TypographyParagraphLight: FC<TypographyCommonProps> = props => (
-  <Typography
-    size={FontSize.BASE}
-    weight={FontWeight.LIGHT}
-    lineHeight={lineHeightMap[FontSize.BASE]}
-    {...props}
-  />
-)
-
-const TypographyParagraphSemiBold: FC<TypographyCommonProps> = props => (
-  <Typography
-    size={FontSize.BASE}
-    weight={FontWeight.SEMI_BOLD}
-    lineHeight={lineHeightMap[FontSize.BASE]}
-    {...props}
-  />
-)
-const TypographyParagraphMedium: FC<TypographyCommonProps> = props => (
-  <Typography
-    size={FontSize.BASE}
-    weight={FontWeight.MEDIUM}
-    lineHeight={lineHeightMap[FontSize.BASE]}
-    {...props}
-  />
-)
-
-const TypographyCaption: FC<TypographyCommonProps> = props => (
+const TypographyMontserratRegular: FC<TypographyCommonProps> = props => (
   <Typography
     size={FontSize.SM}
-    weight={FontWeight.REGULAR}
+    fontFamily={FontFamily.MONTSERRAT_REGULAR}
+    lineHeight={lineHeightMap[FontSize.SM]}
+    {...props}
+  />
+)
+const TypographyMontserratBold: FC<TypographyCommonProps> = props => (
+  <Typography
+    size={FontSize.SM}
+    fontFamily={FontFamily.MONTSERRAT_BOLD}
+    lineHeight={lineHeightMap[FontSize.SM]}
+    {...props}
+  />
+)
+const TypographyMontserratSemiBold: FC<TypographyCommonProps> = props => (
+  <Typography
+    size={FontSize.SM}
+    fontFamily={FontFamily.MONTSERRAT_SEMIBOLD}
+    lineHeight={lineHeightMap[FontSize.SM]}
+    {...props}
+  />
+)
+const TypographyMontserratLight: FC<TypographyCommonProps> = props => (
+  <Typography
+    size={FontSize.SM}
+    fontFamily={FontFamily.MONTSERRAT_LIGHT}
+    lineHeight={lineHeightMap[FontSize.SM]}
+    {...props}
+  />
+)
+const TypographyMontserratLink: FC<TypographyCommonProps> = props => (
+  <Typography
+    size={FontSize.SM}
+    fontFamily={FontFamily.MONTSERRAT_LINK}
+    lineHeight={lineHeightMap[FontSize.SM]}
+    {...props}
+  />
+)
+const TypographyLatoRegular: FC<TypographyCommonProps> = props => (
+  <Typography
+    size={FontSize.SM}
+    fontFamily={FontFamily.LATO_REGULAR}
+    lineHeight={lineHeightMap[FontSize.SM]}
+    {...props}
+  />
+)
+const TypographyLatoBold: FC<TypographyCommonProps> = props => (
+  <Typography
+    size={FontSize.SM}
+    fontFamily={FontFamily.LATO_BOLD}
+    lineHeight={lineHeightMap[FontSize.SM]}
+    {...props}
+  />
+)
+const TypographyLatoSemiBold: FC<TypographyCommonProps> = props => (
+  <Typography
+    size={FontSize.SM}
+    fontFamily={FontFamily.LATO_SEMIBOLD}
+    lineHeight={lineHeightMap[FontSize.SM]}
+    {...props}
+  />
+)
+const TypographyLatoLight: FC<TypographyCommonProps> = props => (
+  <Typography
+    size={FontSize.SM}
+    fontFamily={FontFamily.LATO_LIGHT}
+    lineHeight={lineHeightMap[FontSize.SM]}
+    {...props}
+  />
+)
+const TypographyAgrandirBold: FC<TypographyCommonProps> = props => (
+  <Typography
+    size={FontSize.SM}
+    fontFamily={FontFamily.AGRANDIR_BOLD}
+    lineHeight={lineHeightMap[FontSize.SM]}
+    {...props}
+  />
+)
+const TypographyAgrandirBoldItalic: FC<TypographyCommonProps> = props => (
+  <Typography
+    size={FontSize.SM}
+    fontFamily={FontFamily.AGRANDIR_BOLDITALIC}
+    lineHeight={lineHeightMap[FontSize.SM]}
+    {...props}
+  />
+)
+const TypographyAgrandirItalic: FC<TypographyCommonProps> = props => (
+  <Typography
+    size={FontSize.SM}
+    fontFamily={FontFamily.AGRANDIR_ITALIC}
+    lineHeight={lineHeightMap[FontSize.SM]}
+    {...props}
+  />
+)
+const TypographyAgrandirLight: FC<TypographyCommonProps> = props => (
+  <Typography
+    size={FontSize.SM}
+    fontFamily={FontFamily.AGRANDIR_LIGHT}
+    lineHeight={lineHeightMap[FontSize.SM]}
+    {...props}
+  />
+)
+const TypographyAgrandirLightItalic: FC<TypographyCommonProps> = props => (
+  <Typography
+    size={FontSize.SM}
+    fontFamily={FontFamily.AGRANDIR_LIGHTITALIC}
+    lineHeight={lineHeightMap[FontSize.SM]}
+    {...props}
+  />
+)
+const TypographyAgrandirRegular: FC<TypographyCommonProps> = props => (
+  <Typography
+    size={FontSize.SM}
+    fontFamily={FontFamily.AGRANDIR_REGULAR}
     lineHeight={lineHeightMap[FontSize.SM]}
     {...props}
   />
 )
 
-const TypographyCaptionSemiBold: FC<TypographyCommonProps> = props => (
-  <Typography
-    size={FontSize.SM}
-    weight={FontWeight.SEMI_BOLD}
-    lineHeight={lineHeightMap[FontSize.SM]}
-    {...props}
-  />
-)
-const TypographyCaptionMedium: FC<TypographyCommonProps> = props => (
-  <Typography
-    size={FontSize.SM}
-    weight={FontWeight.MEDIUM}
-    lineHeight={lineHeightMap[FontSize.SM]}
-    {...props}
-  />
-)
-
-const TypographyCaptionSmall: FC<TypographyCommonProps> = props => (
-  <Typography
-    size={FontSize.XS}
-    weight={FontWeight.REGULAR}
-    lineHeight={lineHeightMap[FontSize.XS]}
-    {...props}
-  />
-)
-const TypographyCaptionLight: FC<TypographyCommonProps> = props => (
-  <Typography
-    size={FontSize.SM}
-    weight={FontWeight.LIGHT}
-    lineHeight={lineHeightMap[FontSize.SM]}
-    {...props}
-  />
-)
-const TypographyCaptionLightSmall: FC<TypographyCommonProps> = props => (
-  <Typography
-    size={FontSize.XS}
-    weight={FontWeight.LIGHT}
-    lineHeight={lineHeightMap[FontSize.XS]}
-    {...props}
-  />
-)
-
-Typography.H1 = TypographyH1
-Typography.H2 = TypographyH2
-Typography.H3 = TypographyH3
-Typography.Headline = TypographyHeadline
-Typography.Paragraph = TypographyParagraph
-Typography.ParagraphSemiBold = TypographyParagraphSemiBold
-Typography.Caption = TypographyCaption
-Typography.CaptionSemiBold = TypographyCaptionSemiBold
-Typography.CaptionSmall = TypographyCaptionSmall
-Typography.CaptionMedium = TypographyCaptionMedium
-Typography.CaptionLight = TypographyCaptionLight
-Typography.ParagraphLight = TypographyParagraphLight
-Typography.ParagraphMedium = TypographyParagraphMedium
-Typography.CaptionLightSmall = TypographyCaptionLightSmall
+Typography.MontserratRegular = TypographyMontserratRegular
+Typography.MontserratBold = TypographyMontserratBold
+Typography.MontserratSemiBold = TypographyMontserratSemiBold
+Typography.MontserratLight = TypographyMontserratLight
+Typography.MontserratLink = TypographyMontserratLink
+Typography.LatoRegular = TypographyLatoRegular
+Typography.LatoBold = TypographyLatoBold
+Typography.LatoSemiBold = TypographyLatoSemiBold
+Typography.LatoLight = TypographyLatoLight
+Typography.AgrandirBold = TypographyAgrandirBold
+Typography.AgrandirBoldItalic = TypographyAgrandirBoldItalic
+Typography.AgrandirItalic = TypographyAgrandirItalic
+Typography.AgrandirLight = TypographyAgrandirLight
+Typography.AgrandirLightItalic = TypographyAgrandirLightItalic
+Typography.AgrandirRegular = TypographyAgrandirRegular
