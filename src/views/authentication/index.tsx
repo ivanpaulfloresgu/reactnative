@@ -13,14 +13,17 @@ import {
 import { IMAGES } from '../../constants/images'
 import { COLORS } from '../../constants/colors'
 import { ButtonBase } from '../../components/Button/ButtonBase'
+import { useAuthContext } from '../../hooks/useAuthContext'
 type AuthenticationProps = StackScreenProps<AuthStackParamList, 'LOGIN'>
 
 const Authentication: FC<AuthenticationProps> = ({ navigation }) => {
+  const { setIsLogged } = useAuthContext()
   const windowWidth = Dimensions.get('window').width
   const windowHeight = Dimensions.get('window').height
 
-  const goToHomeView = () => {
-    console.log('Entro al home')
+  const applyLogin = () => {
+    //navigation.navigate(HomeFlowScreen.HOME)
+    setIsLogged(true)
   }
   return (
     <View style={styles.container}>
@@ -81,7 +84,7 @@ const Authentication: FC<AuthenticationProps> = ({ navigation }) => {
                 fontFamily: FontFamily.MONTSERRAT_BOLD,
               }}
               labelColor={FontColor.WHITE}
-              onPress={goToHomeView}
+              onPress={applyLogin}
             />
             <ButtonBase.OutLine
               borderLineColor={COLORS.YELLOW[200]}
