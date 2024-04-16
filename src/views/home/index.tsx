@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { StackScreenProps } from '@react-navigation/stack'
-import { ParamListBase } from '@react-navigation/native'
+import { DrawerActions, ParamListBase } from '@react-navigation/native'
 import ViewBase from '../../components/ViewBase'
 import {
   FontColor,
@@ -11,12 +11,13 @@ import {
 import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import { gridUnits, heightPercent } from '../../utils/dimensions'
 import { COLORS } from '../../constants/colors'
+import { MenuSvg } from '../../svg-components/MenuSvg'
 
 type HomeProps = StackScreenProps<ParamListBase>
 
 const Home: FC<HomeProps> = ({ navigation }) => {
-  const goToMenu = () => {
-    //ga
+  const handleToggleDrawer = () => {
+    navigation.dispatch(DrawerActions.toggleDrawer())
   }
   return (
     <ViewBase contentStyle={styles.container}>
@@ -27,9 +28,9 @@ const Home: FC<HomeProps> = ({ navigation }) => {
           style={{ fontWeight: FontWeight.W_800 }}>
           {'Buenos Dias especial.\nUser'}
         </Typography.LatoSemiBold>
-        <TouchableOpacity
-          onPress={goToMenu}
-          style={styles.circle}></TouchableOpacity>
+        <TouchableOpacity onPress={handleToggleDrawer} style={styles.circle}>
+          <MenuSvg width={26} height={26} />
+        </TouchableOpacity>
       </View>
 
       <View style={styles.carouselContainer}></View>
@@ -37,11 +38,7 @@ const Home: FC<HomeProps> = ({ navigation }) => {
       <Typography.LatoSemiBold
         lineHeight={FontSize.MD}
         color={FontColor.WHITE}
-        style={{
-          textTransform: 'uppercase',
-          marginTop: gridUnits(2),
-          fontWeight: FontWeight.W_800,
-        }}>
+        style={styles.label}>
         {'health metric'}
       </Typography.LatoSemiBold>
     </ViewBase>
@@ -62,14 +59,17 @@ const styles = StyleSheet.create({
   circle: {
     backgroundColor: COLORS.WHITE,
     borderRadius: 20,
-    height: 40,
-    top: 0,
-    width: 40,
+    padding: gridUnits(0.5),
   },
   container: {
     backgroundColor: COLORS.BLACK,
     flex: 1,
     padding: gridUnits(3),
+  },
+  label: {
+    fontWeight: FontWeight.W_800,
+    marginTop: gridUnits(2),
+    textTransform: 'uppercase',
   },
   nameContainer: {
     alignContent: 'center',

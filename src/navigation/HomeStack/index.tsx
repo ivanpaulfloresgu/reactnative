@@ -5,6 +5,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer'
 import { widthPercent } from '../../utils/dimensions'
 import CustomDrawer from '../../components/CustomDrawer/CustomDrawer'
 import Home from '../../views/home'
+import { IvanStack } from '../IvanStack'
 
 const Drawer = createDrawerNavigator()
 const Stack = createStackNavigator<HomeStackParamList>()
@@ -16,7 +17,7 @@ const DrawerStack = () => {
       screenOptions={{
         headerShown: false,
         drawerStyle: {
-          width: widthPercent(1),
+          width: widthPercent(0.8),
           flex: 1,
         },
         drawerPosition: 'right',
@@ -36,6 +37,7 @@ export const HomeStack = () => {
         name={HomeFlowScreen.INITIAL_VIEW}
         component={DrawerStack}
       />
+      <Stack.Screen name={HomeFlowScreen.IVAN_STACK} component={IvanStack} />
     </Stack.Navigator>
   )
 }
