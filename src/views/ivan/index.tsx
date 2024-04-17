@@ -5,28 +5,42 @@ import {
   IvanStackParamList,
 } from '../../navigation/IvanStack/IvanFlowScreen'
 import ViewBase from '../../components/ViewBase'
-import { TouchableOpacity } from 'react-native'
-import { Typography } from '../../components/Typography'
+import { FlatList } from 'react-native'
+import { FontSize, Typography } from '../../components/Typography'
+import { COLORS } from '../../constants/colors'
+import { gridUnits } from '../../utils/dimensions'
+import { ListItem } from './components/ListItem'
+import { dataIvanList } from '../../utils/constants'
 
 type PracticeProps = StackScreenProps<IvanStackParamList, 'PRACTICE'>
 export const Practice: FC<PracticeProps> = ({ navigation }) => {
   const goToHome = () => {
     navigation.pop()
   }
-  const goToSignatureSection = () => {
-    navigation.push(IvanFlowScreen.SIGNATURE_SECTION)
+  const goToRouteSelection = (route: IvanFlowScreen) => {
+    navigation.push(route)
   }
   return (
     <ViewBase
       showHeader
       showRightButton
+      showLeftButton
       rightActionButton={goToHome}
-      title="hola">
-      <TouchableOpacity onPress={goToSignatureSection}>
-        <Typography.AgrandirRegular>
-          {'SignatureScreen'}
-        </Typography.AgrandirRegular>
-      </TouchableOpacity>
+      backgroundColor={COLORS.GRAY[100]}
+      contentStyle={{ marginHorizontal: gridUnits(2), marginTop: gridUnits(5) }}
+      title="Lista de Ivan">
+      <Typography.AgrandirRegular
+        size={FontSize.XXL}
+        style={{ marginBottom: gridUnits(2) }}>
+        {'Proyectos:'}
+      </Typography.AgrandirRegular>
+      <FlatList
+        data={dataIvanList}
+        keyExtractor={(_, index) => String(index)}
+        renderItem={({ item }) => (
+          <ListItem item={item} onPress={goToRouteSelection} />
+        )}
+      />
     </ViewBase>
   )
 }

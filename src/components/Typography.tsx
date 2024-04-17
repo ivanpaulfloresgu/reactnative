@@ -33,7 +33,8 @@ export enum FontColor {
   RED,
   SHADE_RED,
   WHITE,
-  GRAY,
+  GRAY_0,
+  GRAY_100,
   MEDIUM_GRAY,
   DARK_GRAY,
   GREEN,
@@ -60,6 +61,7 @@ export enum FontColor {
   BLUE_200,
   ORANGE,
   YELLOW_200,
+  CYAN,
 }
 
 export enum FontAlignment {
@@ -104,7 +106,8 @@ const colorMap: Record<FontColor, string> = {
   [FontColor.PRIMARY_600]: COLORS.PRIMARY[600],
   [FontColor.PRIMARY_700]: COLORS.PRIMARY[700],
   [FontColor.PRIMARY_800]: COLORS.PRIMARY[800],
-  [FontColor.GRAY]: COLORS.GRAY,
+  [FontColor.GRAY_0]: COLORS.GRAY[0],
+  [FontColor.GRAY_100]: COLORS.GRAY[100],
   [FontColor.MEDIUM_GRAY]: COLORS.MEDIUM_GRAY,
   [FontColor.DARK_GRAY]: COLORS.DARK_GRAY,
   [FontColor.GREEN]: COLORS.PRIMARY_GREEN,
@@ -118,6 +121,7 @@ const colorMap: Record<FontColor, string> = {
   [FontColor.BLUE_200]: COLORS.BLUE[200],
   [FontColor.ORANGE]: COLORS.ORANGE,
   [FontColor.YELLOW_200]: COLORS.YELLOW[200],
+  [FontColor.CYAN]: COLORS.CYAN,
 }
 
 const lineHeightMap: Record<FontSize, number> = {

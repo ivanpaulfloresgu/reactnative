@@ -28,7 +28,10 @@ export const COLORS = {
   WARNING: {
     100: '#FFFDEC',
   },
-  GRAY: '#434343',
+  GRAY: {
+    0: '#434343',
+    100: '#D1CECD',
+  },
   MEDIUM_GRAY: '#636363',
   DARK_GRAY: '#464646',
   RED: '#DD3135',
@@ -63,4 +66,5 @@ export const COLORS = {
     500: '#DD3135',
   },
   TRANSPARENT: 'transparent',
+  CYAN: '#0CC2C5',
 }
