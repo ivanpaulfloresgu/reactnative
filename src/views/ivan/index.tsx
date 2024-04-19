@@ -26,6 +26,7 @@ export const Practice: FC<PracticeProps> = ({ navigation }) => {
       showRightButton
       showLeftButton
       rightActionButton={goToHome}
+      navigation={navigation}
       backgroundColor={COLORS.GRAY[100]}
       contentStyle={{ marginHorizontal: gridUnits(2), marginTop: gridUnits(5) }}
       title="Lista de Ivan">
