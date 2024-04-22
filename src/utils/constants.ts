@@ -1,6 +1,8 @@
 import { IvanList } from '../models/Ivan'
 import { COLORS } from '../constants/colors'
 import { IvanFlowScreen } from '../navigation/IvanStack/IvanFlowScreen'
+import { LeoList } from '../models/Leo'
+import { LeoFlowScreen } from '../navigation/LeoStack/LeoFlowScreen'
 
 export const dataIvanList: IvanList[] = [
   {

@@ -6,4 +6,9 @@ export const IMAGES = {
   drawer: {
     next_icon: require('../assets/images/drawer/next_icon.png'),
   },
+
+  messi: {
+    messi_bonito: require('../views/leo/Img/messi.jpg'),
+    
+  },
 }

@@ -6,6 +6,7 @@ import { widthPercent } from '../../utils/dimensions'
 import CustomDrawer from '../../components/CustomDrawer/CustomDrawer'
 import Home from '../../views/home'
 import { IvanStack } from '../IvanStack'
+import { LeoStack } from '../LeoStack'
 
 const Drawer = createDrawerNavigator()
 const Stack = createStackNavigator<HomeStackParamList>()
@@ -38,6 +39,7 @@ export const HomeStack = () => {
         component={DrawerStack}
       />
       <Stack.Screen name={HomeFlowScreen.IVAN_STACK} component={IvanStack} />
+      <Stack.Screen name={HomeFlowScreen.LEO_STACK} component={LeoStack} />
     </Stack.Navigator>
   )
 }
