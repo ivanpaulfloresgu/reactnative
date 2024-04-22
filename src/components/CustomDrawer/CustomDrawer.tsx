@@ -88,7 +88,7 @@ const CustomDrawer: FC<CustomDrawerProps> = ({ navigation }) => {
           />
           <DrawerItem
             label={'Leonardo'}
-            onPress={() => null}
+            onPress={() => goToNextView(DrawerItemName.LEONARDO)}
             labelColor={FontColor.WHITE}
             isActive={activeItem === DrawerItemName.LEONARDO}
           />
