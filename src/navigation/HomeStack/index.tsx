@@ -7,6 +7,7 @@ import CustomDrawer from '../../components/CustomDrawer/CustomDrawer'
 import Home from '../../views/home'
 import { IvanStack } from '../IvanStack'
 import { LeoStack } from '../LeoStack'
+import { GinoStack } from '../GinoStack'
 
 const Drawer = createDrawerNavigator()
 const Stack = createStackNavigator<HomeStackParamList>()
@@ -40,6 +41,7 @@ export const HomeStack = () => {
       />
       <Stack.Screen name={HomeFlowScreen.IVAN_STACK} component={IvanStack} />
       <Stack.Screen name={HomeFlowScreen.LEO_STACK} component={LeoStack} />
+      <Stack.Screen name={HomeFlowScreen.GINO_STACK} component={GinoStack} />
     </Stack.Navigator>
   )
 }
