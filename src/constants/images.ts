@@ -11,4 +11,7 @@ export const IMAGES = {
   messi: {
     messi_bonito: require('../assets/images/leo/messi.jpg'),
   },
+  gif: {
+    gif_practice: require('../assets/images/leo/react_native.gif'),
+  },
 }
