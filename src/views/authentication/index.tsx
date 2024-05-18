@@ -14,6 +14,7 @@ import { IMAGES } from '../../constants/images'
 import { COLORS } from '../../constants/colors'
 import { ButtonBase } from '../../components/Button/ButtonBase'
 import { useAuthContext } from '../../hooks/useAuthContext'
+import { Colors } from 'react-native/Libraries/NewAppScreen'
 type AuthenticationProps = StackScreenProps<AuthStackParamList, 'LOGIN'>
 
 const Authentication: FC<AuthenticationProps> = ({ navigation }) => {
@@ -58,7 +59,7 @@ const Authentication: FC<AuthenticationProps> = ({ navigation }) => {
               <TextInput
                 style={styles.input}
                 placeholder="Email"
-                placeholderTextColor={'white'}
+                placeholderTextColor={COLORS.WHITE}
               />
             </View>
             <View style={styles.containerImput}>
@@ -132,6 +133,7 @@ const styles = StyleSheet.create({
   },
   input: {
     fontSize: FontSize.XS,
+    color: COLORS.WHITE,
   },
   loginContainer: {
     alignItems: 'center',
