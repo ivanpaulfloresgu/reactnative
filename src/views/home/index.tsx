@@ -24,9 +24,9 @@ const Home: FC<HomeProps> = ({ navigation }) => {
       <View style={styles.nameContainer}>
         <Typography.LatoSemiBold
           lineHeight={FontSize.MD}
-          color={FontColor.WHITE}
+          color={FontColor.RED}
           style={{ fontWeight: FontWeight.W_800 }}>
-          {'Buenos Dias especial.\nUser'}
+          {'Buenos Dias especiales\nUser'}
         </Typography.LatoSemiBold>
         <TouchableOpacity onPress={handleToggleDrawer} style={styles.circle}>
           <MenuSvg width={26} height={26} />
@@ -50,10 +50,10 @@ export default Home
 const styles = StyleSheet.create({
   carouselContainer: {
     backgroundColor: COLORS.WHITE,
-    borderRadius: gridUnits(4),
+    borderRadius: gridUnits(2),
     // flex: 1,
     borderWidth: 1,
-    height: heightPercent(0.26),
+    height: heightPercent(0.76),
     padding: gridUnits(2),
   },
   circle: {
@@ -62,9 +62,9 @@ const styles = StyleSheet.create({
     padding: gridUnits(0.5),
   },
   container: {
-    backgroundColor: COLORS.BLACK,
+    backgroundColor: COLORS.AQUAMARINE,
     flex: 1,
-    padding: gridUnits(3),
+    padding: gridUnits(1),
   },
   label: {
     fontWeight: FontWeight.W_800,

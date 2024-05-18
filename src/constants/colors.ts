@@ -2,7 +2,9 @@ export const COLORS = {
   WHITE: '#FFFFFF',
   BLACK: '#000000',
   PRIMARY_GREEN: '#36AD55',
+  GREY: '#9b9b9b',
   PRIMARY_BLUE: '#164899',
+  AQUAMARINE: '#ACDCDD',
   PRIMARY: {
     100: '#F2F9F5',
     200: '#EDF7F2',
