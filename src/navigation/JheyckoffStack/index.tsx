@@ -14,7 +14,6 @@ export const JheyckoffStack = () => {
   return (
     <StackJheyckoff.Navigator screenOptions={{ headerShown: false }}>
       <StackJheyckoff.Screen name={JheyckoffFlowScreen.XBOX} component={xbox} />
-      {/* <StackJheyckoff.Screen name={JheyckoffFlowScreen.XBOX} component={XBOX} /> */}
     </StackJheyckoff.Navigator>
   )
 }

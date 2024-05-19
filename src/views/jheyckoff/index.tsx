@@ -45,6 +45,6 @@ export const xbox: FC<PlayProps> = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   SpaceButton: {
-    marginVertical: 15,
+    marginVertical: gridUnits(2),
   },
 })

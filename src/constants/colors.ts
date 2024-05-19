@@ -2,7 +2,7 @@ export const COLORS = {
   WHITE: '#FFFFFF',
   BLACK: '#000000',
   PRIMARY_GREEN: '#36AD55',
-  GREY: '#9b9b9b',
+  OPAQUE_BLACK: '#00000066',
   PRIMARY_BLUE: '#164899',
   AQUAMARINE: '#ACDCDD',
   PRIMARY: {
@@ -33,6 +33,8 @@ export const COLORS = {
   GRAY: {
     0: '#434343',
     100: '#D1CECD',
+    200: '#9b9b9b',
+    300: '#d3d3d366',
   },
   MEDIUM_GRAY: '#636363',
   DARK_GRAY: '#464646',

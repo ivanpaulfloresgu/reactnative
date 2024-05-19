@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     borderWidth: 0.5,
     marginVertical: gridUnits(1),
-    backgroundColor: 'rgba(211,211,211,0.5)',
+    backgroundColor: COLORS.GRAY[300],
   },
   iconStyle: {
     height: gridUnits(3.5),
