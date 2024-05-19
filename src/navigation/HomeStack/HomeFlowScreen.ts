@@ -4,6 +4,7 @@ export enum HomeFlowScreen {
   IVAN_STACK = 'IVAN_STACK',
   LEO_STACK = 'LEO_STACK',
   GINO_STACK = 'GINO_STACK',
+  JHEYCKOFF_STACK = 'JHEYCKOFF_STACK',
 }
 
 export type HomeStackParamList = {
@@ -12,4 +13,5 @@ export type HomeStackParamList = {
   IVAN_STACK: undefined
   LEO_STACK: undefined
   GINO_STACK: undefined
+  JHEYCKOFF_STACK: undefined
 }
