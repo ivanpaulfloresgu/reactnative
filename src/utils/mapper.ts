@@ -6,6 +6,6 @@ export const mapDrawer: Record<DrawerItemName, string> = {
   [DrawerItemName.GINO]: HomeFlowScreen.GINO_STACK,
   [DrawerItemName.IVAN]: HomeFlowScreen.IVAN_STACK,
   [DrawerItemName.JAHYR]: '',
-  [DrawerItemName.JHEYCKOFF]: '',
+  [DrawerItemName.JHEYCKOFF]: HomeFlowScreen.JHEYCKOFF_STACK,
   [DrawerItemName.LEONARDO]: HomeFlowScreen.LEO_STACK,
 }

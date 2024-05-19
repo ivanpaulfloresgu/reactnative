@@ -14,6 +14,7 @@ import { IMAGES } from '../../constants/images'
 import { COLORS } from '../../constants/colors'
 import { ButtonBase } from '../../components/Button/ButtonBase'
 import { useAuthContext } from '../../hooks/useAuthContext'
+import { Colors } from 'react-native/Libraries/NewAppScreen'
 type AuthenticationProps = StackScreenProps<AuthStackParamList, 'LOGIN'>
 
 const Authentication: FC<AuthenticationProps> = ({ navigation }) => {
@@ -43,7 +44,7 @@ const Authentication: FC<AuthenticationProps> = ({ navigation }) => {
         <View style={styles.textContainer}>
           <View style={styles.text}>
             <Typography.MontserratBold
-              color={FontColor.YELLOW_200}
+              color={FontColor.CYAN}
               size={FontSize.XXL}
               alignment={FontAlignment.LEFT}>
               {'Bienvenido de nuevo'}
@@ -58,24 +59,25 @@ const Authentication: FC<AuthenticationProps> = ({ navigation }) => {
               <TextInput
                 style={styles.input}
                 placeholder="Email"
-                placeholderTextColor={'white'}
+                placeholderTextColor={COLORS.BLACK}
               />
+              
             </View>
             <View style={styles.containerImput}>
               <TextInput
                 style={styles.input}
                 placeholder="Password"
-                placeholderTextColor={'white'}
+                placeholderTextColor={COLORS.BLACK}
               />
             </View>
             <Typography.MontserratBold
-              color={FontColor.YELLOW_200}
+              color={FontColor.CYAN}
               size={FontSize.BASE}
               alignment={FontAlignment.LEFT}>
               {'¿Has olvidado tu contraseña?'}
             </Typography.MontserratBold>
             <ButtonBase.OutFill
-              fillColor={COLORS.YELLOW[200]}
+              fillColor={COLORS.CYAN}
               label={'Iniciar'}
               width={widthPercent(0.6)}
               containerStyle={styles.buttonContainer}
@@ -87,7 +89,7 @@ const Authentication: FC<AuthenticationProps> = ({ navigation }) => {
               onPress={applyLogin}
             />
             <ButtonBase.OutLine
-              borderLineColor={COLORS.YELLOW[200]}
+              borderLineColor={COLORS.CYAN}
               label={'Registrate'}
               width={widthPercent(0.6)}
               containerStyle={styles.registerButton}
@@ -120,18 +122,20 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     borderWidth: 0.5,
     marginVertical: gridUnits(1),
+    backgroundColor: COLORS.GRAY[300],
   },
   iconStyle: {
     height: gridUnits(3.5),
     marginBottom: gridUnits(1),
     marginTop: gridUnits(6),
     resizeMode: 'contain',
-    tintColor: COLORS.YELLOW[200],
+    tintColor: COLORS.YELLOW[100],
     transform: [{ rotate: '90deg' }],
     width: gridUnits(3.5),
   },
   input: {
     fontSize: FontSize.XS,
+    color: COLORS.WHITE,
   },
   loginContainer: {
     alignItems: 'center',
