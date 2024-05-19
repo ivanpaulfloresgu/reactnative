@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { StackScreenProps } from '@react-navigation/stack'
+
 import {
   LeoFlowScreen,
   LeoStackParamList,
@@ -10,6 +11,7 @@ import { COLORS } from '../../constants/colors'
 import { gridUnits } from '../../utils/dimensions'
 import { ButtonBase } from '../../components/Button/ButtonBase'
 import { StyleSheet } from 'react-native'
+import TextField from '../../components/TextField'
 
 type PlayProps = StackScreenProps<LeoStackParamList, 'PLAY'>
 export const Play: FC<PlayProps> = ({ navigation }) => {
@@ -37,6 +39,16 @@ export const Play: FC<PlayProps> = ({ navigation }) => {
       backgroundColor={COLORS.GRAY[100]}
       contentStyle={{ marginHorizontal: gridUnits(2), marginTop: gridUnits(5) }}
       title="Lista de Leonardo">
+      <TextField
+        label={'Contraseña SANNA'}
+        placeholder="Contraseña SANNA"
+        showVisibility
+        //  inputStyle={styles.TextFieldStyle}
+        keyboardType={'number-pad'}
+        //maxLength={MAX_PASSWORD_LENGTH}
+        // value={password}
+        //onChangeText={handlePasswordText}
+      />
       <ButtonBase.OutFill
         containerStyle={styles.SpaceButton}
         fillColor={COLORS.BLACK}
