@@ -1,5 +1,6 @@
-import React, { FC, useRef } from 'react'
+import React, { FC } from 'react'
 import { StackScreenProps } from '@react-navigation/stack'
+
 import { LeoStackParamList } from '../../navigation/LeoStack/LeoFlowScreen'
 import {
   Alert,
@@ -8,20 +9,21 @@ import {
   Text,
   TouchableOpacity,
   View,
-  ViewBase,
 } from 'react-native'
-import { TextInput } from 'react-native-gesture-handler'
+
 import ViewBaseB from '../../components/ViewBase'
-import { Formik, FormikConfig, FormikValues } from 'formik'
+import { Formik } from 'formik'
 import * as Yup from 'yup'
 import { COLORS } from '../../constants/colors'
+import TextField from '../../components/TextField'
+import { gridUnits } from '../../utils/dimensions'
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
     .min(10, 'Nombre imcompleto!')
     .max(50, 'Porfavor coloque un nombre real')
-    .required('Ingrese su nombre completo'),
-
+    .required('Ingrese su nombre completo')
+    .matches(/^[a-zA-ZáéíóúÁÉÍÓÚüÜ\s]+$/, 'Ingrese valores Correstos'),
   email: Yup.string()
     .email('Correo invalido')
     .required('Ingrese su correo electronico'),
@@ -40,7 +42,7 @@ const SignupSchema = Yup.object().shape({
 
   mobile: Yup.string()
     .min(9, 'Numero de celular corto')
-    .max(9, 'Numero de celular corto ')
+    .max(9, 'Numero de celular largo ')
     .matches(/^[0-9]+$/, 'Ingrese un numero de celular real')
     .required('Ingrese un numero de celular'),
 })
@@ -55,7 +57,6 @@ export const RegisterSection: FC<RegisterProps> = ({ navigation }) => {
       showRightButton
       showLeftButton
       navigation={navigation}
-      backgroundColor={COLORS.GRAY[100]}
       title="Register">
       <Formik
         initialValues={{
@@ -81,8 +82,7 @@ export const RegisterSection: FC<RegisterProps> = ({ navigation }) => {
             <View style={styles.formConteiner}>
               <Text style={styles.title}>Registro</Text>
               <View style={styles.inputWrapper}>
-                <TextInput
-                  style={styles.inputStyle}
+                <TextField
                   placeholder="Nombre y Apellidos"
                   keyboardType="ascii-capable"
                   value={values.name}
@@ -95,8 +95,7 @@ export const RegisterSection: FC<RegisterProps> = ({ navigation }) => {
                 )}
               </View>
               <View style={styles.inputWrapper}>
-                <TextInput
-                  style={styles.inputStyle}
+                <TextField
                   placeholder="Direccion de correo electronico"
                   keyboardType="email-address"
                   value={values.email}
@@ -109,8 +108,10 @@ export const RegisterSection: FC<RegisterProps> = ({ navigation }) => {
                 )}
               </View>
               <View style={styles.inputWrapper}>
-                <TextInput
-                  style={styles.inputStyle}
+                <TextField
+                  iconImageColor={COLORS.BLUE[100]}
+                  inputStyle={styles.TextFieldStyle}
+                  showVisibility
                   placeholder="Ingrese contraseña"
                   value={values.password}
                   onChangeText={handleChange('password')}
@@ -122,8 +123,10 @@ export const RegisterSection: FC<RegisterProps> = ({ navigation }) => {
                 )}
               </View>
               <View style={styles.inputWrapper}>
-                <TextInput
-                  style={styles.inputStyle}
+                <TextField
+                  iconImageColor={COLORS.BLUE[100]}
+                  inputStyle={styles.TextFieldStyle}
+                  showVisibility
                   placeholder="Confirmar contraseña"
                   autoCapitalize={'none'}
                   value={values.confirmPassword}
@@ -135,8 +138,7 @@ export const RegisterSection: FC<RegisterProps> = ({ navigation }) => {
                 )}
               </View>
               <View style={styles.inputWrapper}>
-                <TextInput
-                  style={styles.inputStyle}
+                <TextField
                   placeholder="Nro celular"
                   keyboardType="phone-pad"
                   autoCapitalize={'none'}
@@ -164,7 +166,6 @@ export const RegisterSection: FC<RegisterProps> = ({ navigation }) => {
     </ViewBaseB>
   )
 }
-
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
@@ -209,5 +210,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 18,
     fontWeight: '700',
+  },
+  TextFieldStyle: {
+    paddingHorizontal: gridUnits(1),
+    marginBottom: gridUnits(1),
+    marginTop: gridUnits(0.5),
   },
 })

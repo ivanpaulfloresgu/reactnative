@@ -13,8 +13,9 @@ import React, { FC, useState } from 'react'
 import { gridUnits } from '../utils/dimensions'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import Icon from 'react-native-vector-icons/Ionicons'
-import { FontFamily, FontSize } from './Typography'
+import { FontColor, FontFamily, FontSize } from './Typography'
 import { COLORS } from '../constants/colors'
+import { Value } from 'react-native-reanimated'
 export type TextFieldProps = TextInputProps & {
   label?: string
   hideLabel?: boolean
@@ -27,6 +28,7 @@ export type TextFieldProps = TextInputProps & {
   errorText?: string
   showIcon?: boolean
   iconImage?: string
+  iconImageColor?: ColorValue
 }
 
 const TextField: FC<TextFieldProps> = ({
@@ -39,6 +41,7 @@ const TextField: FC<TextFieldProps> = ({
   textFieldStyle,
   showIcon = true,
   iconImage,
+  iconImageColor = COLORS.NEUTRAL[600],
   ...props
 }) => {
   const [isTextVisible, setIsTextVisible] = useState(showVisibility)
@@ -61,7 +64,7 @@ const TextField: FC<TextFieldProps> = ({
         />
         {showVisibility && (
           <TouchableOpacity onPress={handleTextVisibility}>
-            <Icon name={iconName} size={gridUnits(3)} />
+            <Icon name={iconName} size={gridUnits(3)} color={iconImageColor} />
           </TouchableOpacity>
         )}
       </View>
