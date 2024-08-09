@@ -4,6 +4,8 @@ import { GinoFlowScreen, GinoStackParamList } from './GinoFlowScreen'
 import { ProjectList } from '../../views/gino'
 import { Netflix } from '../../views/gino/Netflix'
 import { Mangas } from '../../views/gino/Mangas'
+import { ChooseUser } from '../../views/gino/ChooseUser'
+import { HomeNetflix } from '../../views/gino/HomeNetflix'
 
 const Stack = createStackNavigator<GinoStackParamList>()
 export const GinoStack = () => {
@@ -15,6 +17,11 @@ export const GinoStack = () => {
       />
       <Stack.Screen name={GinoFlowScreen.NETFLIX} component={Netflix} />
       <Stack.Screen name={GinoFlowScreen.MANGAS} component={Mangas} />
+      <Stack.Screen name={GinoFlowScreen.CHOOSE_USER} component={ChooseUser} />
+      <Stack.Screen
+        name={GinoFlowScreen.HOME_NETFLIX}
+        component={HomeNetflix}
+      />
     </Stack.Navigator>
   )
 }

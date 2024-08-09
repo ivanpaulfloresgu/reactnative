@@ -37,6 +37,12 @@ export const dataPrueba: ListProjectResponse[] = [
     iconColor: COLORS.CYAN,
     route: GinoFlowScreen.NETFLIX,
   },
+  {
+    name: 'Mangas',
+    iconName: IMAGES.drawer.netflixIcon,
+    iconColor: COLORS.CYAN,
+    route: GinoFlowScreen.NETFLIX,
+  },
 ]
 
 type ProjectListProps = StackScreenProps<GinoStackParamList, 'PROJECT_LIST'>
@@ -44,8 +50,8 @@ export const ProjectList: FC<ProjectListProps> = ({ navigation }) => {
   const goToHome = () => {
     navigation.pop()
   }
-  const goToRouteSelection = (route: GinoFlowScreen) => {
-    navigation.push(route)
+  const goToRouteSelection = (data: ListProjectResponse) => {
+    navigation.push(data.route)
   }
 
   return (
@@ -70,7 +76,11 @@ export const ProjectList: FC<ProjectListProps> = ({ navigation }) => {
         keyExtractor={(_, index) => String(index)}
         contentContainerStyle={styles.flatListContainer}
         renderItem={({ item }) => (
-          <ProyectListItem data={item} onPress={goToRouteSelection} />
+          <ProyectListItem
+            data={item}
+            onPress={goToRouteSelection}
+            isDisabled
+          />
         )}
       />
     </ViewBase>
