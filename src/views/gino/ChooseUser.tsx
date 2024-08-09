@@ -52,14 +52,6 @@ export const dataProfiles: ListProjectResponse[] = [
         link: 'https://www.youtube.com/watch?v=uDzfa0w86Vw',
         idMovie: 1,
       },
-      // {
-      //   movieName: 'GUASON 2',
-      //   isLike: false,
-      //   movieTime: '',
-      //   imageMovie: IMAGES.drawer.joker,
-      //   link: 'https://www.youtube.com/watch?v=_uBwHBKP76c',
-      //   idMovie: 2,
-      // },
     ],
   },
   {

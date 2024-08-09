@@ -64,9 +64,7 @@ export const HomeNetflix: FC<HomeNetflixProps> = ({ navigation, route }) => {
     setModalVisible(false)
     setVideoUrl(null)
   }
-  // console.log('preferences', preferences)
 
-  console.log('character', character)
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -128,7 +126,6 @@ export const HomeNetflix: FC<HomeNetflixProps> = ({ navigation, route }) => {
 
           <View style={styles.buttonPlayStyle}>
             <Typography.AgrandirBold
-              // style={{ alignSelf: 'center' }}
               size={FontSize.SM}
               alignment={FontAlignment.CENTER}
               color={FontColor.BLACK}
@@ -218,14 +215,12 @@ const styles = StyleSheet.create({
     borderColor: COLORS.WHITE,
     borderRadius: gridUnits(0.5),
     borderWidth: 0.5,
-    // flexDirection: 'row',
     padding: gridUnits(0.6),
     width: widthPercent(0.34),
   },
   categoriesContainer: {
     alignContent: 'center',
     alignItems: 'center',
-    // alignSelf: 'center',
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     marginHorizontal: gridUnits(8),
@@ -240,6 +235,10 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.BLACK,
     flex: 1,
   },
+  flatListContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   icon: {
     height: heightPercent(0.1),
     resizeMode: 'contain',
@@ -250,13 +249,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     paddingHorizontal: gridUnits(2),
-    width: '100%',
+    width: widthPercent(1),
   },
   modalContainer: {
-    flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    flex: 1,
+    justifyContent: 'center',
+  },
+  modalContent: {
+    backgroundColor: COLORS.BLACK,
+    borderRadius: 10,
+    height: '60%',
+    overflow: 'hidden',
+    width: '80%',
   },
   movieContainer: {
     padding: gridUnits(2),
@@ -265,7 +271,6 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
     width: '100%',
-    // height: '100%',
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
@@ -275,16 +280,5 @@ const styles = StyleSheet.create({
   },
   webview: {
     flex: 1,
-  },
-  modalContent: {
-    width: '80%',
-    height: '60%',
-    backgroundColor: COLORS.BLACK,
-    borderRadius: 10,
-    overflow: 'hidden',
-  },
-  flatListContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 })

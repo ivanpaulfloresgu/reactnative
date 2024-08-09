@@ -23,21 +23,21 @@ export type GinoDataParam = {
 }
 
 export type Character = {
-  created: string;
-  episode: string[];
-  gender: string;
-  id: number;
+  created: string
+  episode: string[]
+  gender: string
+  id: number
   image: string 
   location: GeneralCharacter
-  name: string;
+  name: string
   origin: GeneralCharacter
-  species: string;
-  status: string;
-  type: string;
-  url: string;
+  species: string
+  status: string
+  type: string
+  url: string
 };
 
 export type GeneralCharacter = {
-  name: string;
-  url: string;
+  name: string
+  url: string
 }
