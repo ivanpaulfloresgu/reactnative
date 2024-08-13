@@ -1,3 +1,5 @@
+import { GinoDataParam } from "../../models/Gino"
+
 export enum HomeFlowScreen {
   INITIAL_VIEW = 'INITIAL_VIEW',
   HOME = 'HOME',
@@ -12,6 +14,8 @@ export type HomeStackParamList = {
   INITIAL_VIEW: undefined
   IVAN_STACK: undefined
   LEO_STACK: undefined
-  GINO_STACK: undefined
+  GINO_STACK: {
+    params: {ginoFlow: GinoDataParam}
+  }
   JHEYCKOFF_STACK: undefined
 }

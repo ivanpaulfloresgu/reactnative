@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import { StackScreenProps } from '@react-navigation/stack'
 import ViewBase from '../../components/ViewBase'
 import {
@@ -8,38 +8,51 @@ import {
   Typography,
 } from '../../components/Typography'
 import { COLORS } from '../../constants/colors'
-import { gridUnits } from '../../utils/dimensions'
-import { GinoStackParamList } from '../../navigation/GinoStack/GinoFlowScreen'
-import { StyleSheet } from 'react-native'
+import {
+  GinoFlowScreen,
+  GinoStackParamList,
+} from '../../navigation/GinoStack/GinoFlowScreen'
+import { StyleSheet, View } from 'react-native'
 
 type NetflixProps = StackScreenProps<GinoStackParamList, 'NETFLIX'>
 export const Netflix: FC<NetflixProps> = ({ navigation }) => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigation.push(GinoFlowScreen.CHOOSE_USER)
+    }, 2000)
+    return () => clearTimeout(timer)
+  }, [navigation])
+
   return (
     <ViewBase
-      showHeader
-      showRightButton
-      showLeftButton
       navigation={navigation}
-      backgroundColor={COLORS.GRAY[100]}
       contentStyle={styles.container}
       title="Netflix">
-      <Typography.AgrandirBold
-        size={FontSize.XXL}
-        alignment={FontAlignment.CENTER}
-        color={FontColor.WHITE}
-        style={styles.textTitle}>
-        {'Netflix'}
-      </Typography.AgrandirBold>
+      <View style={styles.centeredContent}>
+        <Typography.AgrandirBold
+          size={FontSize.XXL}
+          alignment={FontAlignment.CENTER}
+          color={FontColor.RED}
+          style={styles.textTitle}>
+          {'Netflix'}
+        </Typography.AgrandirBold>
+      </View>
+      
     </ViewBase>
   )
 }
 const styles = StyleSheet.create({
+  centeredContent: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
+  },
   container: {
     backgroundColor: COLORS.BLACK,
-    paddingHorizontal: gridUnits(2),
-    paddingVertical: gridUnits(3),
+    flex: 1,
   },
   textTitle: {
-    marginBottom: gridUnits(8),
+    textAlign: 'center',
+    textTransform: 'uppercase',
   },
 })
