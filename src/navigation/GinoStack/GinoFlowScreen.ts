@@ -1,11 +1,12 @@
-import { GinoDataParam } from "../../models/Gino"
+import { GinoDataParam } from '../../models/Gino'
 
 export enum GinoFlowScreen {
   PROJECT_LIST = 'PROJECT_LIST',
   NETFLIX = 'NETFLIX',
   MANGAS = 'MANGAS',
   CHOOSE_USER = 'CHOOSE_USER',
-  HOME_NETFLIX = 'HOME_NETFLIX'
+  HOME_NETFLIX = 'HOME_NETFLIX',
+  MOVIE_INFORMATION = 'MOVIE_INFORMATION',
 }
 
 export type GinoStackParamList = {
@@ -14,6 +15,9 @@ export type GinoStackParamList = {
   MANGAS: undefined
   CHOOSE_USER: undefined
   HOME_NETFLIX: {
-     ginoFlow?: GinoDataParam
+    ginoFlow?: GinoDataParam
+  }
+  MOVIE_INFORMATION: {
+    ginoFlow?: GinoDataParam
   }
 }

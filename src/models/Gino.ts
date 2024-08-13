@@ -19,7 +19,8 @@ export type preferencesList = {
 }
 
 export type GinoDataParam = {
-  selectTrailer: ListProjectResponse
+  selectTrailer?: ListProjectResponse
+  selectMovieInformation?:Character
 }
 
 export type Character = {

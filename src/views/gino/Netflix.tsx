@@ -37,6 +37,7 @@ export const Netflix: FC<NetflixProps> = ({ navigation }) => {
           {'Netflix'}
         </Typography.AgrandirBold>
       </View>
+      
     </ViewBase>
   )
 }

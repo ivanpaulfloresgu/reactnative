@@ -42,7 +42,7 @@ export const HomeNetflix: FC<HomeNetflixProps> = ({ navigation, route }) => {
     const fetchCharacter = async () => {
       try {
         const response = await axios.get(
-          'https://rickandmortyapi.com/api/character/224',
+          'https://rickandmortyapi.com/api/character/483',
         )
         setCharacter(response.data)
       } catch (error) {
@@ -65,6 +65,14 @@ export const HomeNetflix: FC<HomeNetflixProps> = ({ navigation, route }) => {
     setVideoUrl(null)
   }
 
+  // console.log("character",character)
+  const goToMovieInformation = (ch: Character) => {
+    navigation.push(GinoFlowScreen.MOVIE_INFORMATION, {
+      ginoFlow: {
+        selectMovieInformation: ch,
+      },
+    })
+  }
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -178,7 +186,9 @@ export const HomeNetflix: FC<HomeNetflixProps> = ({ navigation, route }) => {
             data={character ? [character] : []}
             keyExtractor={(_, index) => String(index)}
             contentContainerStyle={styles.flatListContainer}
-            renderItem={({ item }) => <MovieItem data={item} />}
+            renderItem={({ item }) => (
+              <MovieItem data={item} onPress={goToMovieInformation} />
+            )}
           />
         </View>
       </ScrollView>
@@ -200,7 +210,14 @@ export const HomeNetflix: FC<HomeNetflixProps> = ({ navigation, route }) => {
                   {'Close'}
                 </Typography.AgrandirBold>
               </TouchableOpacity>
-              <WebView source={{ uri: videoUrl }} style={styles.webview} />
+              <WebView
+                source={{ uri: videoUrl }}
+                style={styles.webview}
+                // onError={(error: WebViewErrorEvent) => {
+                //   console.error('WebView error:', error.nativeEvent);
+                // }}
+                // onLoadStart={() => console.log('Loading URL:', videoUrl)}
+              />
             </View>
           </View>
         </Modal>

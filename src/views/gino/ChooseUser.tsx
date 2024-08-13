@@ -25,7 +25,7 @@ export const dataProfiles: ListProjectResponse[] = [
         isLike: true,
         movieTime: '',
         imageMovie: IMAGES.drawer.dead,
-        link: 'https://www.youtube.com/watch?v=uDzfa0w86Vw',
+        link: 'https://www.youtube.com/watch?v=4Ff2p-hBtwo',
         idMovie: 1,
       },
       {
@@ -67,7 +67,7 @@ export const dataProfiles: ListProjectResponse[] = [
     route: GinoFlowScreen.NETFLIX,
   },
   {
-    name: 'Mirella',
+    name: 'jessi',
     iconName: IMAGES.drawer.fiveProfile,
     iconColor: COLORS.CYAN,
     route: GinoFlowScreen.NETFLIX,
